@@ -45,6 +45,7 @@ if (fs.existsSync(options.cache)) {
 }
 
 const app = express();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
@@ -61,7 +62,8 @@ app.get("/notes/:name", (req, res) => {
   // console.log("Request params:", req.params);
   // console.log("Request headers:", req.headers);
 
-
+  // const storage = multer.memoryStorage();
+  // const upload = multer({ storage: storage });
   const noteName = req.params.name;
   
   if (notes[noteName]) {
